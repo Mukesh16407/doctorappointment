@@ -2,11 +2,15 @@ import React from "react";
 import { Button, Form, Input } from "antd";
 import { Link } from "react-router-dom";
 export const Register = () => {
+
+    const onFinish =(value)=>{
+      console.log(value)
+    }
   return (
     <div className="authentication">
       <div className="authentication-form card p-3">
         <h1 className="card-title">Nice to Meet U</h1>
-        <Form layout="vertical">
+        <Form layout="vertical" onFinish={onFinish}>
           <Form.Item label="Name" name="name">
             <Input placeholder="Name" />
           </Form.Item>
