@@ -37,7 +37,34 @@ export const Layout = ({children}) => {
             icon: "ri-logout-box-r-line",
           }
     ]
-    const menuToRender =userMenu
+    const adminMenu = [
+      {
+        name: "Home",
+        path: "/",
+        icon: "ri-home-line",
+      },
+      {
+        name: "Users",
+        path: "/admin/userslist",
+        icon: "ri-user-line",
+      },
+      {
+        name: "Doctors",
+        path: "/admin/doctorslist",
+        icon: "ri-user-star-line",
+      },
+      {
+        name: "Profile",
+        path: "/profile",
+        icon: "ri-user-line",
+      },
+      {
+        name: "Logout",
+        path: "/logout",
+        icon: "ri-logout-box-r-line",
+      }
+    ];
+    const menuToRender =user?.isAdmin?adminMenu:userMenu
   return (
     <div className='main'>
        <div className='d-flex layout'>
