@@ -7,6 +7,7 @@ export const Layout = ({children}) => {
 
     const [collapsed, setCollapsed] = useState(false);
     const { user } = useSelector((state) => state.user);
+   
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -30,11 +31,6 @@ export const Layout = ({children}) => {
             name:'profile',
             path:'/profile',
             icon:'ri-user-line'
-          },
-          {
-            name: "Logout",
-            path: "/logout",
-            icon: "ri-logout-box-r-line",
           }
     ]
     const adminMenu = [
@@ -57,11 +53,6 @@ export const Layout = ({children}) => {
         name: "Profile",
         path: "/profile",
         icon: "ri-user-line",
-      },
-      {
-        name: "Logout",
-        path: "/logout",
-        icon: "ri-logout-box-r-line",
       }
     ];
     const menuToRender =user?.isAdmin?adminMenu:userMenu
@@ -73,18 +64,28 @@ export const Layout = ({children}) => {
             <h1 className="logo">SH</h1>
           </div>
           <div className='menu'>
-             {menuToRender.map((menu)=>{
+             {menuToRender.map((menu,i)=>{
                 const isActive = location.pathname === menu.path;
                return(
                 <div className={`d-flex menu-item ${
                     isActive && "active-menu-item"
-                  }`}>
+                  }`} key={i}>
                     <i className={menu.icon}></i>
                     {!collapsed && <Link to={menu.path}>{menu.name}</Link>}
                     
                 </div>
                )
              })}
+             <div
+              className={`d-flex menu-item `}
+              onClick={() => {
+                localStorage.clear();
+                navigate("/login");
+              }}
+            >
+              <i className="ri-logout-circle-line"></i>
+              {!collapsed && <Link to="/login">Logout</Link>}
+            </div>
           </div>
          </div>
          <div className='content'>
