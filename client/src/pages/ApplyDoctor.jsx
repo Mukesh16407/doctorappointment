@@ -4,14 +4,15 @@ import { TimePicker } from "antd";
 import { Layout } from "../components/Layout";
 import { useSelector, useDispatch } from "react-redux";
 import { showLoading, hideLoading } from "../redux/alertSlice";
-import { axios } from "axios";
+import  axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 export const ApplyDoctor = () => {
+
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
-  console.log(user)
+
   const navigate = useNavigate();
 
   const onFinish = async (values) => {
