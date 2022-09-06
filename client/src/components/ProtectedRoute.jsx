@@ -28,6 +28,7 @@ export const ProtectedRoute = (props) => {
         dispatch(hideLoading());
         if (response.data.success) {
           dispatch(setUser(response.data.data));
+          
         } else {
          localStorage.clear()
           navigate("/login");
@@ -39,7 +40,7 @@ export const ProtectedRoute = (props) => {
        }
   }
   useEffect(()=>{
-    if (!user) {
+    if (!user ) {
       getUser();
     }
   },[user])
