@@ -16,7 +16,6 @@ export const Register = () => {
        dispatch(hideLoading())
        if(response.data.success){
         toast.success(response.data.message);
-        toast("Redirecting to login Page");
         navigate('/login')
        }else{
         toast.error(response.data.message)

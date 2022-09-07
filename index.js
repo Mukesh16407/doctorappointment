@@ -7,10 +7,12 @@ app.use(express.json());
 
 const userRoute = require("./routes/userRoutes.js");
 const adminRoute  = require('./routes/adminRoutes');
+const doctorRoute = require('./routes/doctorRoutes');
+
 
 app.use("/api/user", userRoute);
 app.use("/api/admin", adminRoute);
-
+app.use('/api/doctor',doctorRoute)
 
 const port = process.env.PORT || 5000;
 

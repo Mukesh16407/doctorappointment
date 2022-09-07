@@ -1,4 +1,3 @@
-
 import { Toaster } from 'react-hot-toast';
 import { Routes,Route } from 'react-router-dom';
 import { Home } from './pages/Home';
@@ -11,6 +10,8 @@ import { ApplyDoctor } from './pages/ApplyDoctor';
 import { Notification } from './pages/Notification';
 import { UserList } from './pages/Admin/UserList';
 import { DoctorList } from './pages/Admin/DoctorList';
+import { Profile } from './pages/Doctor/Profile';
+
 function App() {
   const {loading} = useSelector(state => state.alerts)
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path='/notifications'element={ <ProtectedRoute> <Notification /> </ProtectedRoute> }/>
         <Route path='/admin/userslist'element={ <ProtectedRoute> <UserList /> </ProtectedRoute> }/>
         <Route path='/admin/doctorslist'element={ <ProtectedRoute> <DoctorList /> </ProtectedRoute> }/>
+        <Route path='/doctor/profile/:userId'element={ <ProtectedRoute> <Profile /> </ProtectedRoute> }/>
       </Routes>
     
     </div>
