@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Layout } from "../components/Layout";
 import { hideLoading, showLoading } from "../redux/alertSlice";
+import {DoctorForm} from '../components/DoctorForm';
+import moment from "moment";
 
 export const BookAppointment = () => {
   const { user } = useSelector((state) => state.user);
@@ -119,11 +121,29 @@ export const BookAppointment = () => {
                 <b>Timings :</b> {doctor.timings[0]} - {doctor.timings[1]}
               </h1>
               <div className="d-flex flex-column pt-2 mt-2">
-                <DatePicker format="DD-MM-YYYY" />
-                <TimePicker.RangePicker format="HH:mm" className="mt-3" />
-                <Button className="primary-button mt-3 full-width-button">
-                  Book Now
-                </Button>
+                <DatePicker format="DD-MM-YYYY" onChange={(value) => {
+                    setDate(moment(value).format("DD-MM-YYYY"));
+                    setIsAvailable(false);
+                  }}/>
+                <TimePicker format="HH:mm" className="mt-3"onChange={(value) => {
+                    setIsAvailable(false);
+                    setTime(moment(value).format("HH:mm"));
+                  }} />
+                {!isAvailable &&   <Button
+                  className="primary-button mt-3 full-width-button"
+                  onClick={checkAvailability}
+                >
+                  Check Availability
+                </Button>}
+
+                {isAvailable && (
+                  <Button
+                    className="primary-button mt-3 full-width-button"
+                    onClick={bookNow}
+                  >
+                    Book Now
+                  </Button>
+                )}
               </div>
             </Col>
           </Row>
