@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Layout } from "../components/Layout";
 import { hideLoading, showLoading } from "../redux/alertSlice";
-import {DoctorForm} from '../components/DoctorForm';
 import moment from "moment";
 
 export const BookAppointment = () => {
@@ -115,11 +114,35 @@ export const BookAppointment = () => {
             {doctor.firstName} {doctor.lastName}
           </h1>
           <hr />
-          <Row>
+          <Row gutter={20} className="mt-5" align="middle">
+            <Col span={8} sm={24} xs={24} lg={8}>
+              <img
+                src="https://thumbs.dreamstime.com/b/finger-press-book-now-button-booking-reservation-icon-online-149789867.jpg"
+                alt=""
+                width="100%"
+                height='400'
+              />
+            </Col>
             <Col span={8} sm={24} xs={24} lg={8}>
               <h1 className="normal-text">
                 <b>Timings :</b> {doctor.timings[0]} - {doctor.timings[1]}
               </h1>
+              <p>
+                <b>Phone Number : </b>
+                {doctor.phoneNumber}
+              </p>
+              <p>
+                <b>Address : </b>
+                {doctor.address}
+              </p>
+              <p>
+                <b>Fee per Visit : </b>
+                {doctor.feePerCunsultation}
+              </p>
+              <p>
+                <b>Website : </b>
+                {doctor.website}
+              </p>
               <div className="d-flex flex-column pt-2 mt-2">
                 <DatePicker format="DD-MM-YYYY" onChange={(value) => {
                     setDate(moment(value).format("DD-MM-YYYY"));

@@ -4,6 +4,7 @@ import {Layout} from '../../components/Layout';
 import { showLoading, hideLoading } from "../../redux/alertSlice";
 import axios from "axios";
 import { Table } from "antd";
+import moment from 'moment';
 
 export const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -39,7 +40,11 @@ export const UserList = () => {
       title: "Email",
       dataIndex: "email",
     },
-    
+    {
+      title: "Created At",
+      dataIndex: "createdAt",
+      render: (record , text) => moment(record.createdAt).format("DD-MM-YYYY"),
+    },
     {
       title: "Actions",
       dataIndex: "actions",

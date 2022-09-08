@@ -5,6 +5,7 @@ import { showLoading, hideLoading } from "../../redux/alertSlice";
 import axios from "axios";
 import {toast} from 'react-hot-toast'
 import { Table } from "antd";
+import moment from 'moment';
 
 export const DoctorList = () => {
 
@@ -66,7 +67,11 @@ export const DoctorList = () => {
       title: "Phone",
       dataIndex: "phoneNumber",
     },
-    
+    {
+      title: "Created At",
+      dataIndex: "createdAt",
+      render: (record , text) => moment(record.createdAt).format("DD-MM-YYYY"),
+    },
     {
       title: "status",
       dataIndex: "status",
