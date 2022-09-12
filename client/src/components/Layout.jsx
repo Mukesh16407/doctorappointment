@@ -27,11 +27,7 @@ export const Layout = ({children}) => {
             path: "/apply-doctor",
             icon: "ri-hospital-line",
           },
-          {
-            name:'profile',
-            path:'/profile',
-            icon:'ri-user-line'
-          }
+         
     ];
     const doctorMenu = [
       {
@@ -66,11 +62,7 @@ export const Layout = ({children}) => {
         path: "/admin/doctorslist",
         icon: "ri-user-star-line",
       },
-      {
-        name: "Profile",
-        path: "/profile",
-        icon: "ri-user-line",
-      }
+      
     ];
     const menuToRender =user?.isAdmin?adminMenu:user?.isDoctor ? doctorMenu:userMenu;
     const role = user?.isAdmin ? "Admin" : user?.isDoctor ? "Doctor" : "User";
