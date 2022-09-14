@@ -30,12 +30,13 @@ export const Home = () => {
 
   useEffect(()=>{
     getData()
+    // eslint-disable-next-line
   },[])
   return (
     <Layout>
        <Row gutter={20}>
-        {doctors.map((doctor) => (
-          <Col span={8} xs={24} sm={24} lg={8}>
+        {doctors.map((doctor,index) => (
+          <Col span={8} xs={24} sm={24} lg={8} key={index}>
             <Doctor doctor={doctor} />
           </Col>
         ))}
