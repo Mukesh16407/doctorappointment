@@ -24,6 +24,7 @@ when any changees any page(doctor,patient,admin) you got notification
 ## doctor home page
 ![Screenshot (1662)](https://user-images.githubusercontent.com/66511917/190899588-06780c02-9aac-42e4-83ce-b603460f04cb.png)
 ## doctor update page
-![Screenshot (1663)](https://user-images.githubusercontent.com/66511917/190899604-b6d7c619-68b1-4f74-abf9-504f5ad22a4e.png)
+![doctorpofile](https://github.com/Mukesh16407/doctorappointment/assets/66511917/bfc2c770-513c-4a1d-b10e-b606c762f66e)
+
 
 
